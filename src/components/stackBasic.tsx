@@ -21,6 +21,8 @@ import {
 import { MouseBindings } from "@cornerstonejs/tools/dist/esm/enums";
 
 export function StackBasic() {
+  //Initializing. Here I am saying that my boolean useRef starts as false,
+  //therefore what I see in the page is null
   const isInitialized = useRef<boolean>(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
@@ -87,7 +89,7 @@ export function StackBasic() {
       // Create a stack viewport
       const viewportId = "CT_STACK";
       const viewportInput = {
-        viewportId,
+        viewportId,         //property shorthand 
         type: ViewportType.STACK,
         element: elementRef.current,
       } as PublicViewportInput;
@@ -102,7 +104,7 @@ export function StackBasic() {
         viewportId
       ) as IStackViewport;
 
-      // Define a stack containing a single image
+      // Define a stack containing a series
       const stack = imageIds;
 
       // Set the stack on the viewport
@@ -111,7 +113,8 @@ export function StackBasic() {
       // Render the image
       viewport.render();
     }
-
+    
+    //Here I am saying that if it's false, run it and assign true
     if (!isInitialized.current) {
       run();
       isInitialized.current = true;
@@ -122,7 +125,7 @@ export function StackBasic() {
     <div id="content">
       <div
         id="cornerstone-element"
-        ref={elementRef}
+        ref={elementRef}        //Check this, from React
         style={{ width: 500, height: 500 }}
       ></div>
     </div>
