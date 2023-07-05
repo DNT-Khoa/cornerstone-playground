@@ -23,7 +23,7 @@ import { MouseBindings } from "@cornerstonejs/tools/dist/esm/enums";
 export function StackBasic() {
   //Initializing. Here I am saying that my boolean useRef starts as false,
   //therefore what I see in the page is null
-  const isInitialized = useRef<boolean>(false);
+  const isInitialized = useRef<boolean>(false); //test
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
